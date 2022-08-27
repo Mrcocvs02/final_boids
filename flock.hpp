@@ -24,8 +24,8 @@ class flock {
   std::vector<vettore> velocities_;
   std::vector<vettore> positions_seen;
   std::vector<vettore> velocities_seen;
-  vettore predator_p{0,0};
-  vettore predator_v{0,0};
+  vettore predator_p{0, 0};
+  vettore predator_v{0, 0};
 
   void predator_simulation();
   vettore predator_repulsion(int j);
@@ -39,16 +39,15 @@ class flock {
   void rules(int j);
   void set_velocities(int j);
   void wall_hit(int j);
-  void simulation(); 
-
-
+  void simulation();
 };
 
 inline void initial_status_generation(float& p_x, float& p_y, float& v_x,
                                       float& v_y, int w, int h);
 inline vettore center_of_mass(std::vector<vettore>& positions);
 inline vettore medium_velocity(std::vector<vettore>& velocities);
-inline vettore medium_velocity_j(std::vector<vettore>& velocities, std::vector<vettore>& velocities_seen, int j);
+inline vettore medium_velocity_j(std::vector<vettore>& velocities,
+                                 std::vector<vettore>& velocities_seen, int j);
 inline float sdv_medium_velocity(std::vector<vettore>& velocities);
 inline float sdv_center_of_mass(std::vector<vettore>& positions);
 inline void print_boid_status(std::vector<vettore>& positions_,
