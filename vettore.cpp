@@ -21,7 +21,7 @@ vettore vettore::operator/(float b) {
   assert(b != 0);
   return {get_x() / b, get_y() / b};
 };
-double vettore::norm() { return {sqrt(x * x + y * y)}; };
+float vettore::norm() { return {sqrt(x * x + y * y)}; };
 void vettore::print() {
   std::cout << "(" << get_x() << ", " << get_y() << ")" << '\n';
 };
