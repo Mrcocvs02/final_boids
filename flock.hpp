@@ -26,33 +26,32 @@ class flock {
   std::vector<vettore> positions_seen;
   std::vector<vettore> velocities_seen;
 
-  vettore predator_p{0,0};
-  vettore predator_v{0,0};
+  vettore predator_p{0, 0};
+  vettore predator_v{0, 0};
 
   void predator_simulation();
-  vettore predator_repulsion(int j);
-  bool get_p_check(){return predator_check;}
-  void set_p_check(bool b){predator_check=b;}  
+  vettore predator_repulsion(unsigned long int j);
+  bool get_p_check();
+  void set_p_check(bool b);
 
-  vettore v_separation_i(int j);
-  vettore v_allignement1_i(int j);
-  vettore v_cohesion_i(int j);
+  vettore v_separation_i(unsigned long int j);
+  vettore v_allignement1_i(unsigned long int j);
+  vettore v_cohesion_i(unsigned long int j);
 
   void initial_structure();
-  void sight_angle(int j);
-  void rules(int j);
-  void set_velocities(int j);
-  void wall_hit(int j);
-  void simulation(bool p_check); 
-
-
+  void sight_angle(unsigned long int j);
+  void rules(unsigned long int j);
+  void set_velocities(unsigned long int j);
+  void wall_hit(unsigned long int j);
+  void simulation();
 };
 
 inline void initial_status_generation(float& p_x, float& p_y, float& v_x,
                                       float& v_y, int w, int h);
 inline vettore center_of_mass(std::vector<vettore>& positions);
 inline vettore medium_velocity(std::vector<vettore>& velocities);
-inline vettore medium_velocity_j(std::vector<vettore>& velocities, std::vector<vettore>& velocities_seen, int j);
+inline vettore medium_velocity_j(std::vector<vettore>& velocities,
+                                 std::vector<vettore>& velocities_seen, int j);
 inline float sdv_medium_velocity(std::vector<vettore>& velocities);
 inline float sdv_center_of_mass(std::vector<vettore>& positions);
 inline void print_boid_status(std::vector<vettore>& positions_,
