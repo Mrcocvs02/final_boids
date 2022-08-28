@@ -18,7 +18,7 @@ class vettore {
   vettore operator-(vettore b);
   vettore operator*(float b);
   vettore operator/(float b);
-  float norm();
+  double norm();
   void print();
 };
 
