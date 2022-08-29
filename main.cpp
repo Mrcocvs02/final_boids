@@ -2,7 +2,7 @@
 #include <iostream>
 
 #include "flock.cpp"
-#include "Graphic.cpp"
+#include "graphic.cpp"
 #include "vettore.cpp"
 
 int main() {
