@@ -123,7 +123,7 @@ TEST_CASE("testing flock.cpp") {
   flock Flock_2{20.f, 1.f, 0.1f, 0.02f, 2, display_width, display_height};
   flock Flock_3{50.f, 2.5f, 0.25f, 0.05f, 2, display_width, display_height};
 
-  SUBCASE("testing flock::centre of mass") {
+  SUBCASE("centre of mass()") {
     vettore a{150.f, 400.f};
     vettore b{500.f, 968.f};
     std::vector<vettore> positions{a, b};
@@ -148,7 +148,27 @@ TEST_CASE("testing flock.cpp") {
     CHECK(res_4.get_y() == 13.6f);
   }
 
-  SUBCASE("testing flock::medium_velocity") {
+  SUBCASE("testing medium_distance()") {
+    vettore a{100.f, 100.f};
+    vettore b{200.f, 200.f};
+    std::vector<vettore> positions{a, b};
+    float res_1 = medium_distance(positions);
+    CHECK(res_1 == doctest::Approx(141.421f));
+    vettore c{250.f, 300.f};
+    positions.push_back(c);
+    float res_2 = medium_distance(positions);
+    CHECK(res_2 == doctest::Approx(503.225f));
+    positions.clear();
+    positions.push_back(null);
+    float res_3 = medium_distance(positions);
+    CHECK(res_3 == 0.f);
+    positions.clear();
+    positions.push_back(a);
+    float res_4 = medium_distance(positions);
+    CHECK(res_4 == 0.f);
+  }
+
+  SUBCASE("testing medium_velocity()") {
     vettore a{120.f, 300.f};
     vettore b{23.56f, -378.77f};
     std::vector<vettore> velocities{a, b};
@@ -194,7 +214,7 @@ TEST_CASE("testing flock.cpp") {
     Flock_1.positions_seen.clear();
   }
 
-  SUBCASE("testing flock::sdv_center_of_mass()") {
+  SUBCASE("testing sdv_center_of_mass()") {
     vettore p_1{150.f, 400.f};
     vettore p_2{500.f, 968.f};
     std::vector<vettore> positions{p_1, p_2};
@@ -216,7 +236,27 @@ TEST_CASE("testing flock.cpp") {
     CHECK(res_4 == 0.f);
   }
 
-  SUBCASE("testing flock::sdv_medium_velocity()") {
+  SUBCASE("testing sdv_medium_distance()") {
+    vettore a{100.f, 100.f};
+    vettore b{200.f, 200.f};
+    std::vector<vettore> positions{a, b};
+    float res_1 = sdv_medium_distance(positions);
+    CHECK(res_1 == 0.f);
+    vettore c{250.f, 300.f};
+    positions.push_back(c);
+    float res_2 = sdv_medium_distance(positions);
+    CHECK(res_2 == doctest::Approx(417.274f));
+    positions.clear();
+    positions.push_back(null);
+    float res_3 = sdv_medium_distance(positions);
+    CHECK(res_3 == 0.f);
+    positions.clear();
+    positions.push_back(a);
+    float res_4 = sdv_medium_distance(positions);
+    CHECK(res_4 == 0.f);
+  }
+
+  SUBCASE("testing sdv_medium_velocity()") {
     vettore v_1{120.f, 300.f};
     vettore v_2{23.56f, -378.77f};
     std::vector<vettore> velocities{v_1, v_2};
