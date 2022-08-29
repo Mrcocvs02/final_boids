@@ -1,7 +1,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
-#include "flock.cpp"
-#include "vettore.cpp"
+#include "Flock.cpp"
+#include "Vettore.cpp"
 
 TEST_CASE("testing vettore.cpp") {
   SUBCASE("testing vettore::set_value()") {
