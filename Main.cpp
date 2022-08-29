@@ -1,9 +1,9 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-#include "flock.cpp"
-#include "graphic.cpp"
-#include "vettore.cpp"
+#include "Flock.cpp"
+#include "Graphic.cpp"
+#include "Vettore.cpp"
 
 int main() {
   int n;
