@@ -49,13 +49,13 @@ class flock {
 inline void initial_status_generation(float& p_x, float& p_y, float& v_x,
                                       float& v_y, int w, int h);
 inline vettore center_of_mass(std::vector<vettore>& positions);
+float medium_distance(std::vector<vettore>& positions);
 inline vettore medium_velocity(std::vector<vettore>& velocities);
 inline vettore medium_velocity_j(std::vector<vettore>& velocities,
                                  std::vector<vettore>& velocities_seen, int j);
 inline float sdv_medium_velocity(std::vector<vettore>& velocities);
 inline float sdv_center_of_mass(std::vector<vettore>& positions);
-inline void print_boid_status(std::vector<vettore>& positions_,
-                              std::vector<vettore>& velocities_, int j);
+float sdv_medium_distance(std::vector<vettore>& positions);
 inline void print_statistical_values(std::vector<vettore>& positions,
                                      std::vector<vettore>& velocities);
 
