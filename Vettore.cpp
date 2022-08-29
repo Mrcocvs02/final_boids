@@ -1,4 +1,4 @@
-#include "vettore.hpp"
+#include "Vettore.hpp"
 
 #include <cassert>
 #include <cmath>
