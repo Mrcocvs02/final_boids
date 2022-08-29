@@ -127,7 +127,6 @@ void flock::simulation() {
     rules(j);
     wall_hit(j);
     set_velocities(j);
-    print_boid_status(positions_, velocities_, j);
     assert(positions_seen.empty() == 1);
     assert(velocities_seen.empty() == 1);
     assert(positions_.empty() == 0);
@@ -152,7 +151,7 @@ void initial_status_generation(float& p_x, float& p_y, float& v_x, float& v_y,
   std::uniform_real_distribution<float> positions_distribution_y(50, h - 50);
   p_x = positions_distribution_x(random_generator);
   p_y = positions_distribution_y(random_generator);
-  std::normal_distribution<float> velocities_distribution(200., 30.);
+  std::normal_distribution<float> velocities_distribution(55., 30.);
   std::uniform_int_distribution<int> sign_x(0, 1);
   std::uniform_int_distribution<int> sign_y(0, 1);
   int s_x{0};
@@ -178,6 +177,36 @@ vettore center_of_mass(std::vector<vettore>& positions) {
   if (positions.size() > 1) {
     res = (std::accumulate(positions.begin(), positions.end(), null)) /
           positions.size();
+  }
+  return res;
+}
+float medium_distance(std::vector<vettore>& positions) {
+  std::vector<float> distances;
+  for (unsigned long int i = 0; i < positions.size() - 1; i++) {
+    for (unsigned long int j = i + 1; j < positions.size(); j++) {
+      distances.push_back((positions[j] - positions[i]).norm());
+    }
+  }
+  return std::accumulate(distances.begin(), distances.end(), 0.f);
+}
+float sdv_medium_distance(std::vector<vettore>& positions) {
+  float res;
+  std::vector<float> md_scarti_quadratici;
+  if ((positions.size() == 1) || (positions.size() == 2)) {
+    res = 0.f;
+  }
+  if (positions.size() > 2) {
+    for (unsigned long int i = 0; i < positions.size() - 1; i++) {
+      for (unsigned long int j = i + 1; j < positions.size(); j++) {
+        md_scarti_quadratici.push_back(((positions[j] - positions[i]).norm() -
+                                        medium_distance(positions)) *
+                                       ((positions[j] - positions[i]).norm() -
+                                        medium_distance(positions)));
+      }
+    };
+    res = sqrtf(std::accumulate(md_scarti_quadratici.begin(),
+                                md_scarti_quadratici.end(), 0.f) /
+                (md_scarti_quadratici.size() - 1));
   }
   return res;
 }
@@ -234,17 +263,12 @@ float sdv_center_of_mass(std::vector<vettore>& positions) {
   }
   return res;
 }
-void print_boid_status(std::vector<vettore>& positions_,
-                       std::vector<vettore>& velocities_, int j) {
-  std::cout << "boid " << j + 1 << ": " << '\n';
-  std::cout << "position = ";
-  positions_[j].print();
-  std::cout << "velocity = ";
-  velocities_[j].print();
-}
 void print_statistical_values(std::vector<vettore>& positions,
                               std::vector<vettore>& velocities) {
-  std::cout << '\n';
+  std::cout << '\n'
+            << "medium distance: " << medium_distance(positions) << '\n'
+            << "sdv medium distance: " << sdv_medium_distance(positions)
+            << '\n';
   std::cout << "center of mass: ";
   center_of_mass(positions).print();
   std::cout << "sdv center of mass " << sdv_center_of_mass(positions) << '\n';
