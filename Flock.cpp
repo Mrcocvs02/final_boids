@@ -1,13 +1,5 @@
 #include "Flock.hpp"
 
-#include <chrono>
-#include <cmath>
-#include <iostream>
-#include <numeric>
-#include <random>
-
-#include "cassert"
-
 vettore const null{0, 0};
 
 int const fps = 30;
