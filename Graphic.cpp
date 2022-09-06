@@ -1,15 +1,5 @@
 #include "Graphic.hpp"
 
-#include <math.h>
-
-#include <iostream>
-#include <vector>
-
-#include "Flock.hpp"
-#include "SFML/Graphics.hpp"
-#include "SFML/Window.hpp"
-#include "Vettore.hpp"
-
 float angle(vettore v) {
   float angle = (float)(atan2(v.get_x(), -v.get_y()) * 180 / M_PI);
   return angle;
