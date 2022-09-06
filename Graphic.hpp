@@ -1,10 +1,10 @@
 #include <iostream>
 #include <vector>
 
+#include "Flock.hpp"
 #include "SFML/Graphics.hpp"
 #include "SFML/Window.hpp"
-#include "flock.hpp"
-#include "vettore.hpp"
+#include "Vettore.hpp"
 
 #ifndef GRAPHIC_HPP
 #define GRAPHIC_HPP
@@ -25,7 +25,7 @@ class game {
   void set_play_check(bool b);
   void play(flock& flock);
 };
-inline float angle();
-inline void predator_movement(flock& Flock);
+float angle();
+void predator_movement(flock& Flock);
 
 #endif
