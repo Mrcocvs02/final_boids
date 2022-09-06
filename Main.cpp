@@ -1,6 +1,3 @@
-#include <SFML/Graphics.hpp>
-#include <iostream>
-
 #include "Flock.hpp"
 #include "Graphic.hpp"
 #include "Vettore.hpp"
