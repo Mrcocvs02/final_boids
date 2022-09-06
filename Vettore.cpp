@@ -1,9 +1,5 @@
 #include "Vettore.hpp"
 
-#include <cassert>
-#include <cmath>
-#include <iostream>
-
 float vettore::get_x() const { return x; };
 float vettore::get_y() const { return y; };
 void vettore::set_value(float a, float b) {
