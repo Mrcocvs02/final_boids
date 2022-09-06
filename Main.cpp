@@ -1,9 +1,12 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-#include "Flock.cpp"
-#include "Graphic.cpp"
-#include "Vettore.cpp"
+#include "Flock.hpp"
+#include "Graphic.hpp"
+#include "Vettore.hpp"
+
+int const display_width = 1200;
+int const display_height = 650;
 
 int main() {
   int n;
