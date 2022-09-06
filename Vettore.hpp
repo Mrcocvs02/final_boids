@@ -14,15 +14,15 @@ class vettore {
   float get_y() const;
   void set_value(float a, float b);
 
-  vettore operator+(vettore b);
-  vettore operator-(vettore b);
-  vettore operator*(float b);
-  vettore operator/(float b);
-  double norm();
-  void print();
+  vettore operator+(vettore const& b) const;
+  vettore operator-(vettore const& b) const;
+  vettore operator*(float const b) const;
+  vettore operator/(float const b) const;
+  double norm() const&;
+  void print() const&;
 };
 
-inline float scalar_prod(vettore a, vettore b);
-inline float angle_between_vectors(vettore a, vettore b);
+float scalar_prod(vettore const& a, vettore const& b);
+float angle_between_vectors(vettore const& a, vettore const& b);
 
 #endif
