@@ -1,4 +1,6 @@
-#include <vector>
+#include <cassert>
+#include <cmath>
+#include <iostream>
 
 #ifndef VETTORE_HPP
 #define VETTORE_HPP
