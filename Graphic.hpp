@@ -21,8 +21,8 @@ class game {
   void run(flock& Flock);
   void close_window();
 
-  bool get_play_check();
-  void set_play_check(bool b);
+  bool get_play_check() const;
+  void set_play_check(bool const b);
   void play(flock& flock);
 };
 float angle();
