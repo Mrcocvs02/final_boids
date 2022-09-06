@@ -10,25 +10,25 @@ void vettore::set_value(float a, float b) {
   x = a;
   y = b;
 };
-vettore vettore::operator+(vettore b) {
-  return {(get_x() + b.get_x()), (get_y() + b.get_y())};
+vettore vettore::operator+(vettore const& b) const {
+  return {(x + b.get_x()), (y + b.get_y())};
 };
-vettore vettore::operator-(vettore b) {
-  return {(get_x() - b.get_x()), (get_y() - b.get_y())};
+vettore vettore::operator-(vettore const& b) const {
+  return {(x - b.get_x()), (y - b.get_y())};
 };
-vettore vettore::operator*(float b) { return {(get_x() * b), (get_y() * b)}; };
-vettore vettore::operator/(float b) {
+vettore vettore::operator*(float const b) const { return {(x * b), (y * b)}; };
+vettore vettore::operator/(float const b) const {
   assert(b != 0);
-  return {get_x() / b, get_y() / b};
+  return {x / b, y / b};
 };
-double vettore::norm() { return {sqrtf(x * x + y * y)}; };
-void vettore::print() {
-  std::cout << "(" << get_x() << ", " << get_y() << ")" << '\n';
+double vettore::norm() const { return {sqrtf(x * x + y * y)}; };
+void vettore::print() const {
+  std::cout << "(" << x << ", " << y << ")" << '\n';
 };
 
-float scalar_prod(vettore a, vettore b) {
+float scalar_prod(vettore const& a, vettore const& b) {
   return a.get_x() * b.get_x() + a.get_y() * b.get_y();
 };
-float angle_between_vectors(vettore a, vettore b) {
+float angle_between_vectors(vettore const& a, vettore const& b) {
   return acos(scalar_prod(a, b) / (a.norm() * b.norm()));
 };
