@@ -1,10 +1,6 @@
-#include <iostream>
-#include <vector>
-
 #include "Flock.hpp"
 #include "SFML/Graphics.hpp"
 #include "SFML/Window.hpp"
-#include "Vettore.hpp"
 
 #ifndef GRAPHIC_HPP
 #define GRAPHIC_HPP
