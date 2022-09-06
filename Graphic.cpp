@@ -41,8 +41,8 @@ void game::close_window() {
     exit(0);
   };
 }
-bool game::get_play_check() { return play_check; }
-void game::set_play_check(bool b) { play_check = b; }
+bool game::get_play_check() const { return play_check; }
+void game::set_play_check(bool const b) { play_check = b; }
 void game::play(flock& Flock) {
   if (get_play_check()) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::P)) {
