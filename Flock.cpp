@@ -8,11 +8,9 @@
 
 #include "cassert"
 
-vettore null{0, 0};
+vettore const null{0, 0};
 
 int const fps = 30;
-int const display_width = 1200;
-int const display_height = 650;
 
 void flock::initial_structure() {
   if (n <= 0) {
@@ -99,8 +97,8 @@ void flock::wall_hit(unsigned long int j) {
                              velocities_[j].get_y());
   };
 }
-bool flock::get_p_check() { return predator_check; }
-void flock::set_p_check(bool b) { predator_check = b; }
+bool flock::get_p_check() const { return predator_check; }
+void flock::set_p_check(bool const b) { predator_check = b; }
 void flock::predator_simulation() {
   vettore p_temp = predator_p + predator_v / 30;
   vettore v_temp =
