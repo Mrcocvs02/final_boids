@@ -31,8 +31,8 @@ class flock {
 
   void predator_simulation();
   vettore predator_repulsion(unsigned long int j);
-  bool get_p_check();
-  void set_p_check(bool b);
+  bool get_p_check() const;
+  void set_p_check(bool const b);
 
   vettore v_separation_i(unsigned long int j);
   vettore v_allignement1_i(unsigned long int j);
