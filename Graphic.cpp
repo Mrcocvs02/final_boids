@@ -5,9 +5,9 @@
 #include <iostream>
 #include <vector>
 
+#include "Flock.hpp"
 #include "SFML/Graphics.hpp"
 #include "SFML/Window.hpp"
-#include "Flock.hpp"
 #include "Vettore.hpp"
 
 float angle(vettore v) {
