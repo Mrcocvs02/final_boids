@@ -18,8 +18,8 @@ class vettore {
   vettore operator-(vettore const& b) const;
   vettore operator*(float const b) const;
   vettore operator/(float const b) const;
-  double norm() const&;
-  void print() const&;
+  double norm() const;
+  void print() const;
 };
 
 float scalar_prod(vettore const& a, vettore const& b);
