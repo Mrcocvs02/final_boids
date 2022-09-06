@@ -1,7 +1,12 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#include "Flock.hpp"
+#include "Vettore.hpp"
 #include "doctest.h"
-#include "Flock.cpp"
-#include "Vettore.cpp"
+
+vettore const nul{0.f, 0.f};
+
+int const display_width = 1200;
+int const display_height = 650;
 
 TEST_CASE("testing vettore.cpp") {
   SUBCASE("testing vettore::set_value()") {
@@ -55,7 +60,7 @@ TEST_CASE("testing vettore.cpp") {
     vettore res_2 = b * 2.6;
     CHECK(res_2.get_x() == doctest::Approx(3.12f));
     CHECK(res_2.get_y() == doctest::Approx(-14.56f));
-    vettore res_3 = null * 4.6f;
+    vettore res_3 = nul * 4.6f;
     CHECK(res_3.get_x() == 0.f);
     CHECK(res_3.get_y() == 0.f);
     vettore res_4 = b * 0.f;
@@ -72,7 +77,7 @@ TEST_CASE("testing vettore.cpp") {
     vettore res_2 = b / 2.7;
     CHECK(res_2.get_x() == doctest::Approx(0.8889f));
     CHECK(res_2.get_y() == doctest::Approx(1.8889f));
-    vettore res_3 = null / 4.7f;
+    vettore res_3 = nul / 4.7f;
     CHECK(res_3.get_x() == 0.f);
     CHECK(res_3.get_y() == 0.f);
   }
@@ -136,7 +141,7 @@ TEST_CASE("testing flock.cpp") {
     CHECK(res_2.get_x() == doctest::Approx(216.857f));
     CHECK(res_2.get_y() == doctest::Approx(266.933f));
     positions.clear();
-    positions.push_back(null);
+    positions.push_back(nul);
     vettore res_3 = center_of_mass(positions);
     CHECK(res_3.get_x() == 0);
     CHECK(res_3.get_y() == 0.);
@@ -159,7 +164,7 @@ TEST_CASE("testing flock.cpp") {
     float res_2 = medium_distance(positions);
     CHECK(res_2 == doctest::Approx(503.225f));
     positions.clear();
-    positions.push_back(null);
+    positions.push_back(nul);
     float res_3 = medium_distance(positions);
     CHECK(res_3 == 0.f);
     positions.clear();
@@ -175,12 +180,12 @@ TEST_CASE("testing flock.cpp") {
     vettore res_1 = medium_velocity(velocities);
     CHECK(res_1.get_x() == doctest::Approx(71.78f));
     CHECK(res_1.get_y() == doctest::Approx(-39.385f));
-    velocities.push_back(null);
+    velocities.push_back(nul);
     vettore res_2 = medium_velocity(velocities);
     CHECK(res_2.get_x() == doctest::Approx(47.853f));
     CHECK(res_2.get_y() == doctest::Approx(-26.2568f));
     velocities.clear();
-    velocities = {null, null};
+    velocities = {nul, nul};
     vettore res_3 = medium_velocity(velocities);
     CHECK(res_3.get_x() == 0.f);
     CHECK(res_3.get_y() == 0.f);
@@ -247,7 +252,7 @@ TEST_CASE("testing flock.cpp") {
     float res_2 = sdv_medium_distance(positions);
     CHECK(res_2 == doctest::Approx(417.274f));
     positions.clear();
-    positions.push_back(null);
+    positions.push_back(nul);
     float res_3 = sdv_medium_distance(positions);
     CHECK(res_3 == 0.f);
     positions.clear();
