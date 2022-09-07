@@ -172,12 +172,14 @@ vettore center_of_mass(std::vector<vettore>& positions) {
 }
 float medium_distance(std::vector<vettore>& positions) {
   std::vector<float> distances;
+  int n_distances = 1;
   for (unsigned long int i = 0; i < positions.size() - 1; i++) {
     for (unsigned long int j = i + 1; j < positions.size(); j++) {
       distances.push_back((positions[j] - positions[i]).norm());
     }
+    n_distances += i;
   }
-  return std::accumulate(distances.begin(), distances.end(), 0.f);
+  return std::accumulate(distances.begin(), distances.end(), 0.f) / n_distances;
 }
 float sdv_medium_distance(std::vector<vettore>& positions) {
   float res;
