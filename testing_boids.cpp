@@ -162,7 +162,7 @@ TEST_CASE("testing flock.cpp") {
     vettore c{250.f, 300.f};
     positions.push_back(c);
     float res_2 = medium_distance(positions);
-    CHECK(res_2 == doctest::Approx(503.225f));
+    CHECK(res_2 == doctest::Approx(251.612f));
     positions.clear();
     positions.push_back(nul);
     float res_3 = medium_distance(positions);
@@ -250,7 +250,7 @@ TEST_CASE("testing flock.cpp") {
     vettore c{250.f, 300.f};
     positions.push_back(c);
     float res_2 = sdv_medium_distance(positions);
-    CHECK(res_2 == doctest::Approx(417.274f));
+    CHECK(res_2 == doctest::Approx(125.879f));
     positions.clear();
     positions.push_back(nul);
     float res_3 = sdv_medium_distance(positions);
