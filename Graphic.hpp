@@ -21,7 +21,7 @@ class game {
   void set_play_check(bool const b);
   void play(flock& flock);
 };
-float angle();
+float const angle(vettore const& v);
 void predator_movement(flock& Flock);
 
 #endif
