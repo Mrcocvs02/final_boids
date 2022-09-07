@@ -1,6 +1,6 @@
 #include "Graphic.hpp"
 
-float angle(vettore v) {
+float const angle(vettore const& v) {
   float angle = (float)(atan2(v.get_x(), -v.get_y()) * 180 / M_PI);
   return angle;
 }
